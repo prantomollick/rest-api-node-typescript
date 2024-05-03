@@ -1,8 +1,9 @@
-import mongoose, { Schema, Document } from "mongoose";
 import bcrypt from "bcrypt";
 import config from "config";
+import mongoose, { ObjectId } from "mongoose";
 
-export interface UserDocument extends Document {
+export interface UserDocument extends mongoose.Document {
+  _id: ObjectId;
   name: string;
   email: string;
   password: string;
@@ -12,7 +13,7 @@ export interface UserDocument extends Document {
   updatedAt: Date;
 }
 
-const userSchema = new Schema<UserDocument>(
+const userSchema = new mongoose.Schema<UserDocument>(
   {
     name: {
       type: String,
