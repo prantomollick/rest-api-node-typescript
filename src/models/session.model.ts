@@ -17,7 +17,8 @@ const SessionSchema = new mongoose.Schema(
     valid: { type: Boolean, default: true },
     userAgent: { type: String },
     ip: { type: String },
-    expiresAt: { type: Date, default: () => Date.now() + 86400000 }
+    // expiresAt: { type: Date, default: () => Date.now() + 86400000 }
+    expiresAt: { type: Date, default: () => Date.now() + 60000 }
   },
   {
     timestamps: true

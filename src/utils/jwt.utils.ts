@@ -1,8 +1,15 @@
+import fs from "fs";
+import path from "path";
 import jwt from "jsonwebtoken";
 import config from "config";
 
 const privateKey = config.get<string>("privateKey");
 const publicKey = config.get<string>("publicKey");
+
+// const privateKeyPath = path.join(__dirname, "..", "..", "private_key.pem");
+// console.log("PATH:", privateKeyPath);
+
+// const privateKey = fs.readFileSync(privateKeyPath, "utf8");
 
 export function signJwt(object: Object, options?: jwt.SignOptions | undefined) {
   return jwt.sign(object, privateKey, {
